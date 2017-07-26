@@ -1,0 +1,14 @@
+<form class="login-form">
+
+
+  <div class="container">
+    <label><b>Username</b></label>
+    <input type="text" id="name" placeholder="Enter Username" name="name" required minlength="4" maxlength="24" >
+    <label><b>Password</b></label>
+    <input type="password" id="password" placeholder="Enter Password" name="password" required minlength="4" maxlength="24">
+
+    <button type="submit"  value="Submit" (click)="LoginFun()">Login</button>
+    <a routerLink="/signup">new user?</a>
+  </div>
+
+</form>

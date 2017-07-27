@@ -1,0 +1,16 @@
+.nextbtn
+{
+    position: relative;
+   margin-top: 10px;
+}
+input{
+    border: none;
+}
+
+.question
+{
+    position: fixed;
+   top: 50%;
+   left: 20%;
+   
+}

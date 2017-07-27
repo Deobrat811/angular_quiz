@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
+import{Router} from '@angular/router';
 import { LoginService } from './login.service'
+
 
 @Component({
     selector: 'my-login',
@@ -10,13 +12,14 @@ import { LoginService } from './login.service'
 
 export class LoginComponent {
     msg:String;
-    constructor(private serviceObj: LoginService) {
+    constructor(private serviceObj: LoginService,private router:Router) {
     
     }
     LoginFun() {
 
-            this.serviceObj.getData().subscribe(msg=>this.msg=msg);\
+            this.serviceObj.getData().subscribe(msg=>this.msg=msg);
             console.log(this.msg);
+            this.router.navigate(["quiz"]);
     }
 }
 

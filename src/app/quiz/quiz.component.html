@@ -1,0 +1,11 @@
+<button type="button" id="startbtn" *ngIf="start" class="btn btn-primary" (click)="startQuiz()">Start Quiz</button>
+<div class="question">
+    
+        <div *ngIf="question">
+            {{question.question}}<br>
+            <input type="radio" name="gender" value="male"> {{question.options[0]}}<br>
+            <input type="radio" name="gender" value="female">{{question.options[1]}}<br>
+            <input type="radio" name="gender" value="other"> {{question.options[2]}}<br>
+            <input type="radio" name="gender" value="other"> {{question.options[3]}}<br>
+            <button type="button" class="btn btn-primary nextbtn" (click)="nextQuestion()">Next Question</button>
+    </div>

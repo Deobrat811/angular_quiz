@@ -1,7 +1,4 @@
-/* Bordered form */
-
-
-form{
+form {
    margin: 3% 20% ;
 }
 /* Full-width inputs */
@@ -45,5 +42,3 @@ span.psw {
     float: right;
     padding-top: 16px;
 }
-
-/* Change styles for span and cancel button on extra small screens */

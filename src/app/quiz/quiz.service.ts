@@ -6,18 +6,18 @@ import 'rxjs/Rx'; //get everything from Rx
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
-export class LoginService {
+export class QuizService {
    
     constructor(private http: Http) {
 
     }
-    url:string="http://192.168.1.11/";
+    url:string="./app/quiz/questions.json";
     
-    getData(): Observable<String> {
+    getQuestion(): Observable<any> {
         
         return this.http.get(this.url)
             .map((response: Response) => {
-                return (<String>response.json() || []);
+                return (<any>response.json() || []);
             });
     }
          

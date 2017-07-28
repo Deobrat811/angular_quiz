@@ -1,0 +1,24 @@
+[
+    {
+        "id": "1",
+        "question": "Capital Of India?",
+        "options": [
+            "New Delhi",
+            "Mumbai",
+            "Kolkata",
+            "Chennai"
+        ],
+        "answer":"New Delhi"
+    },
+    {
+        "id": "1",
+        "question": "Capital Of Maharashtra?",
+        "options": [
+            "Pune",
+            "Mumbai",
+            "Nagpur",
+            "Aurangabad"
+        ],
+    "answer":"Mumbai"
+    }
+]

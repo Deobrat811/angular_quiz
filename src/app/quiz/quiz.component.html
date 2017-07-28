@@ -1,11 +1,48 @@
-<button type="button" id="startbtn" *ngIf="start" class="btn btn-primary startbtn" (click)="startQuiz()">Start Quiz</button>
-<div class="question">
-    
-        <div class="questiondiv" *ngIf="question">
-            <h3>{{question.question}}</h3><br>
-            <input type="radio" [(ngModel)]="option" name={{question.id}} value="male"> {{question.options[0]}}<br>
-            <input type="radio" name="option" value="female">{{question.options[1]}}<br>
-            <input type="radio" name="option" value="other"> {{question.options[2]}}<br>
-            <input type="radio" name="option" value="other"> {{question.options[3]}}<br>
-            <button type="button" class="btn btn-primary nextbtn" (click)="nextQuestion()">Next Question</button>
-    </div>
+<my-navbar></my-navbar>
+<div class="container-fluid ">
+		<div *ngIf="question">
+		 <div class="row">
+			
+			<div class="row row1">
+				<div class="col-sm-4 col-sm-offset-2">Question number: {{questionnum}}</div>
+				<div class="col-sm-4 col-sm-offset-2">Time Left:</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-sm-8 col-sm-offset-2">
+					<div class="question questiondiv">
+						
+							 <h2>{{question.question}}</h2><br>
+							 <input type="radio" [(ngModel)]="option" name=option value={{question.options[0]}}> {{question.options[0]}}
+							<br>
+							<input type="radio" [(ngModel)]="option" name="option" value={{question.options[1]}}> {{question.options[1]}}
+							<br>
+							<input type="radio" [(ngModel)]="option" name="option" value={{question.options[2]}}> {{question.options[2]}}
+							<br>
+							<input type="radio" [(ngModel)]="option" name="option" value={{question.options[3]}}> {{question.options[3]}}
+							<br>
+							<br>
+							<button type="button" class="btn btn-primary nextbtn" (click)="nextQuestion()">Next Question</button>
+						
+					</div>
+			</div>
+		</div>	
+
+	  </div> 
+	</div>
+	</div>
+
+	<div class="row startdiv" *ngIf="start">
+		<div class="col-sm-6 col-sm-offset-4">
+	       <h1>Get Ready to start the quiz</h1>
+		</div>
+		<div class="row">
+		    <div class="col-sm-3 col-sm-offset-5 startbtn">
+		        <button type="button" class="btn btn-primary startbtn" (click)="startQuiz()">Start Quiz </button>
+		     </div>   
+		</div>
+	</div>
+
+
+
+		

@@ -1,18 +1,19 @@
-.startbtn{
-    margin-top:10%;
-    margin-left: 40px;
-}
+
 .nextbtn
 {
     position: relative;
    margin-top: 10px;
+   font-size:15px;
 }
 input{
     border: none;
 }
+.row1{
+	margin-top:50px;
+	font-size: 20px;
+}
 
-
-h3 {
+h2 ,h3 {
   color: #369;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -22,8 +23,18 @@ h3 {
     border-width: medium;
     padding:20px;
     box-shadow: 10px 10px 5px #888888;
-    min-width: 70%;
+    min-width: 60%;
     position: fixed;
-   top: 27%;
-   left: 20%;
+    margin-top:70px;
+    font-size: 20px;
+}
+.startdiv{
+	margin-top: 10%;
+	 
+
+}
+
+.startbtn{
+	margin-top: 20px;
+    font-size:20px;
 }

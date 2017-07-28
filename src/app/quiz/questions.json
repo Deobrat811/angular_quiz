@@ -7,7 +7,8 @@
             "Mumbai",
             "Kolkata",
             "Chennai"
-        ]
+        ],
+        "answer":"New Delhi"
     },
     {
         "id": "1",
@@ -17,6 +18,7 @@
             "Mumbai",
             "Nagpur",
             "Aurangabad"
-        ]
+        ],
+    "answer":"Mumbai"
     }
 ]

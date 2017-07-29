@@ -1,6 +1,6 @@
 [
     {
-        "id": "1",
+        "id": "0",
         "question": "Capital Of India?",
         "options": [
             "New Delhi",
@@ -20,5 +20,51 @@
             "Aurangabad"
         ],
     "answer":"Mumbai"
+    },
+    {
+        "id": "3",
+        "question": "Angular 2 is entirely component based. Controllers and $scope are no longer used. They have been replaced by . . . . . . . and . . . . . . . .",
+        "options": [
+            "components, controllers",
+            "$scopes, components",
+            "components, directives",
+            "controllers, directives"
+        ],
+    "answer":"components, directives"
+    },
+    {
+        "id": "4",
+        "question": "Angular 2 uses . . . . . . . . syntax for built-in directives.",
+        "options": [
+            "Pascal case",
+            "Snake case",
+            "Camel case",
+            "Underscore case"
+        ],
+    "answer":"Camel case"
+    },
+    {
+        "id": "5",
+        "question": "You can use languages like . . . . . . . . . to write Angular 2 code.",
+        "options": [
+            "ES5",
+            "ES6",
+            "TypeScriptor",
+            "Dart"
+        ],
+    "answer":"TypeScriptor"
+    },
+    {
+        "id": "6",
+        "question": "There are two ways to build forms in Angular 2, namely . . . . and . . . .",
+        "options": [
+            "ES5",
+            "ES6",
+            "TypeScriptor",
+            "Dart"
+        ],
+    "answer":"TypeScriptor"
     }
+
+
 ]

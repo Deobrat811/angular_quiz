@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { QuizService } from './quiz.service';
 import { FormsModule } from '@angular/forms';
+import { Observable } from 'rxjs/Rx';
 @Component({
     selector: 'my-quiz',
     templateUrl: './quiz.component.html',
@@ -17,24 +18,33 @@ export class QuizComponent {
     start: boolean = true;
     option: string;
     length: number;
-    indexlist: number[] = [];
     index: number;
-    suffledques:any[];
-    item:any;
+    suffledques: any[];
+    item: any;
+    tick: any;
+    subscription: any;
     constructor(private quizserObj: QuizService) {
 
     }
     ngOnInit() {
         this.quizserObj.getQuestion().subscribe(questions => this.questions = questions);
     }
-    nextQuestion() {
-        this.indexlist.push(this.index);
-        this.quesitr = this.quesitr + 1;
 
+     changeQuestion(quesnum:number){
+         console.log("in change ques")
+         console.log(quesnum);
+         this.quesitr=quesnum-1;
+         this.question=this.questions[this.quesitr];
+         this.questionnum=this.quesitr+1;
+     }
+
+    nextQuestion() {
+        this.quesitr = this.quesitr + 1;
         if (this.option == this.question.answer) {
             this.marks = this.marks + 1;
         }
         this.question = this.questions[this.quesitr];
+
         this.questionnum = this.questionnum + 1;
     }
     startQuiz() {
@@ -46,12 +56,16 @@ export class QuizComponent {
     suffle() {
         this.length = this.questions.length;
         for (let i = this.length - 1; i >= 0; i--) {
-               this.index=Math.floor(Math.random()*(i+1)); 
-               this.item=this.questions[this.index];
-               this.questions[this.index]=this.questions[i];
-               this.questions[i]=this.item;
+            this.index = Math.floor(Math.random() * (i + 1));
+            this.item = this.questions[this.index];
+            this.questions[this.index] = this.questions[i];
+            this.questions[i] = this.item;
 
         }
+    }
+    timer() {
+
+
     }
 
 

@@ -17,10 +17,10 @@ import { SignupComponent} from './signup/signup.component';
 import { AppRoutingModule} from './app-routing.module';
 import {LoginService} from './login/login.service';
 import {QuizService} from './quiz/quiz.service';
-
+import {SidebarComponent } from './question_sidebar/quessidebar.component';
 @NgModule({
   imports:      [ BrowserModule,FormsModule ,AppRoutingModule,HttpModule],
-  declarations: [ AppComponent,LoginComponent,SignupComponent,QuizComponent,NavbarComponent ],
+  declarations: [ AppComponent,LoginComponent,SignupComponent,QuizComponent,NavbarComponent,SidebarComponent ],
   bootstrap:    [ AppComponent ],
   providers:[LoginService,QuizService]
 })

@@ -1,5 +1,18 @@
 table, th, td {
     border:1px solid black;
     border-collapse: collapse;
- 
+    
+}
+th {
+     background-color: #00C851;
+}
+table{
+    font-size: 18px;
+    min-width: 170px;
+    min-height: 160px;
+}
+button {
+     border: none;
+     width: 100%;
+     height: 100%;
 }

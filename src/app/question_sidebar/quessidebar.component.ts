@@ -20,6 +20,7 @@ export class SidebarComponent {
         this.index = parseInt(event.target.innerHTML);
         this.newques.emit(this.index);
     }
+    //method to display question sidebar
     ngOnInit(){
         var i,j=0;
         this.length=10;

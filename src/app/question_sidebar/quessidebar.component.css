@@ -5,11 +5,14 @@ table, th, td {
 }
 th {
      background-color: #00C851;
+     text-align: center;
 }
 table{
-    font-size: 18px;
+    font-size: 15px;
     min-width: 170px;
     min-height: 160px;
+    box-shadow: 5px 5px;
+    border-radius: 10px;
 }
 button {
      border: none;

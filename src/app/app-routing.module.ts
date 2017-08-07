@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { QuizComponent } from './quiz/quiz.component';
+import { ResultComponent } from './result/result.component';
 import { SignupComponent } from './signup/signup.component'
 
 
@@ -15,6 +16,10 @@ const appRoutes: Routes = [
         component: SignupComponent
     },
     {
+        path: 'result',
+        component: ResultComponent
+    },
+      {
         path: 'quiz',
         component: QuizComponent
     },

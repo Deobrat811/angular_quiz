@@ -26,8 +26,7 @@ export class SidebarComponent {
 
         for(i=1;i<this.length;i=i+3){
             this.numbers[j]=i;
-            j=j+1;
-           
+            j=j+1;  
         }
     }
 

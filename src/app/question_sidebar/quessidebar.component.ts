@@ -10,9 +10,9 @@ export class SidebarComponent {
 
     number: any;
     index: number;
-    length: number;
     numbers: number[]=[];
     i: number;
+    @Input() length:number;
     @Output() newques:EventEmitter<any>=new EventEmitter<any>();
 
 
@@ -23,9 +23,8 @@ export class SidebarComponent {
     //method to display question sidebar
     ngOnInit(){
         var i,j=0;
-        this.length=10;
-
-        for(i=1;i<this.length;i=i+3){
+        console.log(this.length);
+        for(i=1;i<=this.length;i=i+3){
             this.numbers[j]=i;
             j=j+1;  
         }

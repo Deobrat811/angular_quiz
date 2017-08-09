@@ -17,9 +17,14 @@ const appRoutes: Routes = [
     },
     {
         path: 'result',
+        data: [
+            {
+                
+            }
+        ],
         component: ResultComponent
     },
-      {
+    {
         path: 'quiz',
         component: QuizComponent
     },

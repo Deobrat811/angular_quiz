@@ -1,18 +1,27 @@
-import { Component, Input, OnInit ,OnDestroy,OnChanges} from '@angular/core';
+import { Component, Input, OnInit, OnDestroy, OnChanges } from '@angular/core';
+import { Router } from '@angular/router';
 import { QuizService } from './quiz.service';
 import { FormsModule } from '@angular/forms';
 import { Observable, Subscription } from 'rxjs/Rx';
+
+
+export class Marks {
+    obtMarks: number;
+    totalQues: number;
+}
+
+
 @Component({
     selector: 'my-quiz',
     templateUrl: './quiz.component.html',
     styleUrls: ['./quiz.component.css'],
-    providers: [QuizService]
+
 })
 
 export class QuizComponent {
     questions: any[];   //variable to store the list of questions
     questionnum: number = 1;   //used to show the question on view
-    marks: number = 0;         //used to calculate marks
+    obtMarks: number = 0;         //used to calculate Obtained marks
     question: any;             //used to storing a single question
     quesitr: number = 0;       //used to iterate the questions
     start: boolean = true;     //used to show or hide start button
@@ -22,22 +31,27 @@ export class QuizComponent {
     index: number;
     item: any;
 
-     ticks = 0;                       // variables for
-    
+    ticks = 0;                       // variables for
     minutesDisplay: number = 0;      //timer 
     hoursDisplay: number = 0;       //calculation
     secondsDisplay: number = 0;
-
     sub: Subscription;
-    constructor(private quizserObj: QuizService) {
+
+    result: boolean = false;
+     marks: Marks={
+          obtMarks:0,
+           totalQues:0
+       };
+
+    constructor(private quizserObj: QuizService, private router: Router) {
 
     }
     ngOnInit() {
         this.quizserObj.getQuestion().subscribe(questions => this.questions = questions);
     }
-   ngOnDestroy(){
-       
-   }
+    ngOnDestroy() {
+
+    }
     //called by sidebar list to go to certain question
     changeQuestion(quesnum: number) {
         //checks if at the last question
@@ -70,7 +84,7 @@ export class QuizComponent {
         }
         this.quesitr = this.quesitr + 1;
         if (this.option == this.question.answer) {
-            this.marks = this.marks + 1;
+            this.obtMarks = this.obtMarks + 1;
         }
         this.question = this.questions[this.quesitr];
 
@@ -80,6 +94,7 @@ export class QuizComponent {
     //calls the suffle method and starts the quiz
     startQuiz() {
         this.suffle();
+        this.length = this.questions.length;
         this.question = this.questions[this.quesitr];
         this.start = false;
         this.startTimer();
@@ -97,14 +112,14 @@ export class QuizComponent {
         }
     }
 
-//code for timer
+    //code for timer
     private startTimer() {
 
         let timer = Observable.timer(1, 1000);
         this.sub = timer.subscribe(
             t => {
                 this.ticks = t;
-                
+
                 this.secondsDisplay = this.getSeconds(this.ticks);
                 this.minutesDisplay = this.getMinutes(this.ticks);
                 this.hoursDisplay = this.getHours(this.ticks);
@@ -117,15 +132,25 @@ export class QuizComponent {
     }
 
     private getMinutes(ticks: number) {
-         return this.pad((Math.floor(ticks / 60)) % 60);
+        return this.pad((Math.floor(ticks / 60)) % 60);
     }
 
     private getHours(ticks: number) {
         return this.pad(Math.floor((ticks / 60) / 60));
     }
 
-    private pad(digit: any) { 
+    private pad(digit: any) {
         return digit <= 9 ? '0' + digit : digit;
+    }
+
+
+
+    //method to submit the answer 
+    submitAnswer() {
+       this.marks.obtMarks=this.obtMarks;
+       this.marks.totalQues=this.length;
+        this.quizserObj.setMarks(this.marks);
+        this.router.navigate(['/result']);
     }
 
 

@@ -64,7 +64,19 @@
             "Dart"
         ],
     "answer":"TypeScriptor"
+    },
+    {
+        "id": "7",
+        "question": "How do we share data in angular2",
+        "options": [
+            "@Output",
+            "@Input",
+            "Common Service",
+            "All of the above"
+        ],
+    "answer":"All of the above"
     }
+
 
 
 ]

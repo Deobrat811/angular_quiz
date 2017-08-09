@@ -11,6 +11,9 @@
 				<div class="col-sm-7 col-sm-offset-2">
 					<div class="question questiondiv">
 
+                    
+
+
 						<h2>{{question.question}}</h2><br>
 						<input type="radio" [(ngModel)]="option" name=option value={{question.options[0]}}> {{question.options[0]}}
 						<br>
@@ -21,12 +24,12 @@
 						<input type="radio" [(ngModel)]="option" name="option" value={{question.options[3]}}> {{question.options[3]}}
 						<br>
 						<br>
-						<button *ngIf="!lastques" type="button" class="btn btn-primary nextbtn" (click)="nextQuestion()">Next Question</button>
-						<button *ngIf="lastques" type="button" class="btn btn-success submitbtn">Submit Answers</button>
+						<button  type="button" class="btn btn-primary nextbtn" (click)="nextQuestion()">Next Question</button>
+						<button *ngIf="lastques" type="button" class="btn btn-success submitbtn" (click)="submitAnswer()">Submit Answers</button>
 					</div>
 				</div>
 				<div class="col-sm-2 col-sm-offset-1 sidebar">
-					<my-sidebar (newques)="changeQuestion($event)" ></my-sidebar>
+					<my-sidebar [length]="length" (newques)="changeQuestion($event)" ></my-sidebar>
 				</div>
 			</div>
 		</div>

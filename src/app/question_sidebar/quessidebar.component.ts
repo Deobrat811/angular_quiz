@@ -23,7 +23,6 @@ export class SidebarComponent {
     //method to display question sidebar
     ngOnInit(){
         var i,j=0;
-        console.log(this.length);
         for(i=1;i<=this.length;i=i+3){
             this.numbers[j]=i;
             j=j+1;  

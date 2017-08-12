@@ -24,7 +24,7 @@
 						<input type="radio" [(ngModel)]="option" name="option" value={{question.options[3]}}> {{question.options[3]}}
 						<br>
 						<br>
-						<button  type="button" class="btn btn-primary nextbtn" (click)="nextQuestion()">Next Question</button>
+						<button *ngIf="!lastques" type="button" class="btn btn-primary nextbtn" (click)="nextQuestion()">Next Question</button>
 						<button *ngIf="lastques" type="button" class="btn btn-success submitbtn" (click)="submitAnswer()">Submit Answers</button>
 					</div>
 				</div>

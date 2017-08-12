@@ -36,12 +36,14 @@ export class QuizComponent {
     hoursDisplay: number = 0;       //calculation
     secondsDisplay: number = 0;
     sub: Subscription;
-
+    max_time: number;           //for calculating the duration of quiz
+    max_hour: number;
+    max_min: number;
     result: boolean = false;
-     marks: Marks={
-          obtMarks:0,
-           totalQues:0
-       };
+    marks: Marks = {
+        obtMarks: 0,
+        totalQues: 0
+    };
 
     constructor(private quizserObj: QuizService, private router: Router) {
 
@@ -90,11 +92,13 @@ export class QuizComponent {
 
         this.questionnum = this.questionnum + 1;
     }
-
     //calls the suffle method and starts the quiz
     startQuiz() {
         this.suffle();
         this.length = this.questions.length;
+        this.max_time = this.length*3;                           
+        this.max_hour = Math.floor(this.max_time / 60);          //calculating maximum time for quiz 
+        this.max_min = this.max_time % 60;                      //each question is given 3 minutes
         this.question = this.questions[this.quesitr];
         this.start = false;
         this.startTimer();
@@ -108,7 +112,6 @@ export class QuizComponent {
             this.item = this.questions[this.index];
             this.questions[this.index] = this.questions[i];
             this.questions[i] = this.item;
-
         }
     }
 
@@ -119,10 +122,12 @@ export class QuizComponent {
         this.sub = timer.subscribe(
             t => {
                 this.ticks = t;
-
                 this.secondsDisplay = this.getSeconds(this.ticks);
                 this.minutesDisplay = this.getMinutes(this.ticks);
                 this.hoursDisplay = this.getHours(this.ticks);
+                if (this.minutesDisplay == this.max_min && this.hoursDisplay == this.max_hour) {
+                    this.submitAnswer();
+                }
             }
         );
     }
@@ -143,13 +148,15 @@ export class QuizComponent {
         return digit <= 9 ? '0' + digit : digit;
     }
 
-
-
     //method to submit the answer 
     submitAnswer() {
-       this.marks.obtMarks=this.obtMarks;
-       this.marks.totalQues=this.length;
+        if (this.option == this.question.answer) {
+            this.obtMarks = this.obtMarks + 1;
+        }
+        this.marks.obtMarks = this.obtMarks;
+        this.marks.totalQues = this.length;
         this.quizserObj.setMarks(this.marks);
+        this.sub.unsubscribe();
         this.router.navigate(['/result']);
     }
 

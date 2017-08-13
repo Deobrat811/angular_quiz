@@ -96,7 +96,7 @@ export class QuizComponent {
     startQuiz() {
         this.suffle();
         this.length = this.questions.length;
-        this.max_time = this.length*3;                           
+        this.max_time = this.length * 3;
         this.max_hour = Math.floor(this.max_time / 60);          //calculating maximum time for quiz 
         this.max_min = this.max_time % 60;                      //each question is given 3 minutes
         this.question = this.questions[this.quesitr];

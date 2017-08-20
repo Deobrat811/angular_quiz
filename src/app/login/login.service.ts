@@ -11,13 +11,14 @@ export class LoginService {
     constructor(private http: Http) {
 
     }
-    url:string="http://192.168.1.11/";
+    url:string="http://192.168.1.5/";
     
     getData(): Observable<String> {
         
         return this.http.get(this.url)
             .map((response: Response) => {
                 return (<String>response.json() || []);
+               
             });
     }
          

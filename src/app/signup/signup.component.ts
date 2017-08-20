@@ -7,9 +7,10 @@ import { Component, Input } from '@angular/core';
 })
 
 export class SignupComponent {
+    username:String;
     SignupFun() {
 
-        console.log("success");
+        console.log(this.username);
 
     }
 }

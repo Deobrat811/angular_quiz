@@ -1,10 +1,7 @@
-/* Bordered form 
-
-
-form{
+/*form {
    margin: 3% 20% ;
 }
-/* Full-width inputs */
+ Full-width inputs */
 input[type=text], input[type=password],input[type=email] {
     width: 100%;
     padding: 12px 20px;
@@ -14,9 +11,16 @@ input[type=text], input[type=password],input[type=email] {
     box-sizing: border-box;
 }
 a{
-    margin-left: 40px;
-     margin-left:85%;
-     text-decoration: none;
+    margin-left: 15%;
+    text-decoration: none;
+}
+
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
+}
+
+.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; /* red */
 }
 
 /* Set a style for all buttons */
@@ -46,5 +50,3 @@ span.psw {
     float: right;
     padding-top: 16px;
 }
-
-/* Change styles for span and cancel button on extra small screens */

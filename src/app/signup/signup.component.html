@@ -1,15 +1,19 @@
-<form class="signup-form">
-
-
-    <div class="container">
-        <label><b>Username</b></label>
-        <input type="text" id="name" placeholder="Enter Username" name="name" required minlength="4" maxlength="24">
-        <label><b>Mail-Id</b></label>
-        <input type="email" id="password" placeholder="Enter Mail-id" name="password" required>
-        <label><b>Password</b></label>
-        <input type="password" id="password" placeholder="Enter Password" name="password" required minlength="4" maxlength="24">
-
-        <button type="submit" value="Submit">Signup</button>
-    </div>
-    <a routerLink="/login">All ready a user ?</a>
-</form>
+<div class="container">
+    <form class="signup-form">
+        <div class="form-group">
+            <label for="username"><b>Username</b></label>
+            <input type="text" id="username" placeholder="Enter Username" name="name" [(ngModel)]="username" required>
+            
+        </div>
+        <div class="form-group">
+            <label for="email"><b>Mail-Id</b></label>
+            <input type="email" id="email" placeholder="Enter Mail-id" name="email" [(ngModel)]="email" required>
+        </div>
+        <div class="form-group">
+            <label for="password"><b>Password</b></label>
+            <input type="password" id="password" placeholder="Enter Password" name="password" [(ngModel)]="password" required>
+        </div>
+        <button type="submit" class="btn btn-success" value="Submit" (click)="SignupFun()">Signup</button>
+        <a routerLink="/login">All ready a user ?</a>
+    </form>
+</div>

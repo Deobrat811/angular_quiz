@@ -25,7 +25,6 @@ export class QuizService {
 
     setMarks(marks:any) {
         this.marks = marks;
-        console.log(marks);
     }
     getMarks() {
         return this.marks;

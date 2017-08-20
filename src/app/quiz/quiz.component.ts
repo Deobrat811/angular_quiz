@@ -21,7 +21,7 @@ export class Marks {
 export class QuizComponent {
     questions: any[];   //variable to store the list of questions
     questionnum: number = 1;   //used to show the question on view
-    obtMarks: number = 0;         //used to calculate Obtained marks
+
     question: any;             //used to storing a single question
     quesitr: number = 0;       //used to iterate the questions
     start: boolean = true;     //used to show or hide start button
@@ -30,6 +30,10 @@ export class QuizComponent {
     length: number;             //used to store the length of questions[] array
     index: number;
     item: any;
+
+    marksarr: number[] = [];
+    marksObt: number = 0;         //used to calculate Obtained marks
+
 
     ticks = 0;                       // variables for
     minutesDisplay: number = 0;      //timer 
@@ -84,10 +88,15 @@ export class QuizComponent {
         if (this.quesitr == this.length - 1) {
             return;
         }
-        this.quesitr = this.quesitr + 1;
+
         if (this.option == this.question.answer) {
-            this.obtMarks = this.obtMarks + 1;
+            this.marksarr[this.quesitr] = 1;
         }
+        else {
+            this.marksarr[this.quesitr] = 0;
+        }
+
+        this.quesitr = this.quesitr + 1;
         this.question = this.questions[this.quesitr];
 
         this.questionnum = this.questionnum + 1;
@@ -96,6 +105,9 @@ export class QuizComponent {
     startQuiz() {
         this.suffle();
         this.length = this.questions.length;
+        for (var i = 0; i < this.length; i++) {
+            this.marksarr[i] = 0;
+        }
         this.max_time = this.length * 3;
         this.max_hour = Math.floor(this.max_time / 60);          //calculating maximum time for quiz 
         this.max_min = this.max_time % 60;                      //each question is given 3 minutes
@@ -151,12 +163,18 @@ export class QuizComponent {
     //method to submit the answer 
     submitAnswer() {
         if (this.option == this.question.answer) {
-            this.obtMarks = this.obtMarks + 1;
+            this.marksarr[this.quesitr] = 1;
         }
-        this.marks.obtMarks = this.obtMarks;
+        else {
+            this.marksarr[this.quesitr] = 0;
+        }
+        this.sub.unsubscribe();
+        for (var i = 0; i < this.length; i++) {
+            this.marksObt = this.marksObt + this.marksarr[i];
+        }
+        this.marks.obtMarks = this.marksObt;
         this.marks.totalQues = this.length;
         this.quizserObj.setMarks(this.marks);
-        this.sub.unsubscribe();
         this.router.navigate(['/result']);
     }
 

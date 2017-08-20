@@ -24,11 +24,9 @@ export class ResultComponent {
     ngOnInit(){
         if(this.marksObt/this.total_ques>=0.5){
             this.result="Passed"
-            console.log("pass")
         }
         else{
             this.result="failed";
-            console.log("failed");
         }
         
     }

@@ -1,6 +1,6 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule,ReactiveFormsModule }   from '@angular/forms';
 import { Http, Headers,HttpModule, RequestOptions, Response } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
 import { Observable, Subject } from 'rxjs/Rx';
@@ -20,7 +20,7 @@ import {LoginService} from './login/login.service';
 import {QuizService} from './quiz/quiz.service';
 import {SidebarComponent } from './question_sidebar/quessidebar.component';
 @NgModule({
-  imports:      [ BrowserModule,FormsModule ,AppRoutingModule,HttpModule],
+  imports:      [ BrowserModule,FormsModule ,AppRoutingModule,HttpModule,ReactiveFormsModule],
   declarations: [ AppComponent,LoginComponent,SignupComponent,QuizComponent,NavbarComponent,SidebarComponent,ResultComponent ],
   bootstrap:    [ AppComponent ],
   providers:[LoginService,QuizService]
